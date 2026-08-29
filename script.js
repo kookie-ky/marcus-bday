@@ -20,6 +20,12 @@ const micStatus = document.getElementById("micStatus");
 
 const wishText = document.getElementById("wishText");
 
+const currentTime =
+  document.getElementById("currentTime");
+
+const duration =
+  document.getElementById("duration");
+
 /* ENVELOPE */
 
 const envelopeSection =
@@ -187,6 +193,42 @@ audioPlayer.addEventListener("timeupdate", () => {
   progressBar.style.width =
     percentage + "%";
 
+
+  const minutes =
+    Math.floor(
+      audioPlayer.currentTime / 60
+    );
+
+  const seconds =
+    Math.floor(
+      audioPlayer.currentTime % 60
+    );
+
+
+  currentTime.textContent =
+    minutes + ":" +
+    String(seconds).padStart(2, "0");
+
+});
+
+
+audioPlayer.addEventListener("loadedmetadata", () => {
+
+  const minutes =
+    Math.floor(
+      audioPlayer.duration / 60
+    );
+
+  const seconds =
+    Math.floor(
+      audioPlayer.duration % 60
+    );
+
+
+  duration.textContent =
+    minutes + ":" +
+    String(seconds).padStart(2, "0");
+
 });
 
 
@@ -194,8 +236,11 @@ audioPlayer.addEventListener("ended", () => {
 
   equalizer.classList.remove("playing");
 
+  progressBar.style.width =
+    "100%";
+
   startButton.textContent =
-    " MAKE A WISHHHH";
+    "MAKE A WISHHHHH";
 
   wishArea.classList.remove("hidden");
 
