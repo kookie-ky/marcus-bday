@@ -42,6 +42,9 @@ const afterPartyButton =
 const capybaraContainer =
   document.getElementById("capybaraContainer");
 
+const audioPlayer =
+  document.getElementById("audioPlayer");
+
 let progress = 0;
 
 let playing = false;
