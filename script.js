@@ -31,6 +31,16 @@ const envelope =
 const openEnvelopeButton =
   document.getElementById("openEnvelopeButton");
 
+/* AFTER PARTY */
+
+const afterPartySection =
+  document.getElementById("afterPartySection");
+
+const afterPartyButton =
+  document.getElementById("afterPartyButton");
+
+const capybaraContainer =
+  document.getElementById("capybaraContainer");
 
 let progress = 0;
 
@@ -340,11 +350,22 @@ openEnvelopeButton.addEventListener("click", () => {
 
   envelope.classList.add("open");
 
-openEnvelopeButton.textContent =
-  "FOR MARCUS";
+  openEnvelopeButton.textContent =
+    "FOR YOU ♡";
+
+
+  setTimeout(() => {
+
+    afterPartySection.classList.remove("hidden");
+
+    afterPartySection.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  }, 1800);
 
 });
-
 
 envelope.addEventListener("click", () => {
 
@@ -352,5 +373,32 @@ envelope.addEventListener("click", () => {
 
   openEnvelopeButton.textContent =
     "OPEN IT";
+
+
+  setTimeout(() => {
+
+    afterPartySection.classList.remove("hidden");
+
+    afterPartySection.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  }, 1800);
+
+});
+
+/* ------------------------------
+   AFTER PARTY ACTIVATION
+------------------------------ */
+
+afterPartyButton.addEventListener("click", () => {
+
+  capybaraContainer.classList.add("show");
+
+  afterPartyButton.textContent =
+    "AFTER PARTY ACTIVATED";
+
+  equalizer.classList.add("playing");
 
 });
