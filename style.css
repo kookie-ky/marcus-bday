@@ -533,3 +533,123 @@ button:hover {
   }
 
 }
+
+/* ------------------------------
+   WISH / MICROPHONE
+------------------------------ */
+
+.hidden {
+  display: none;
+}
+
+.wish-area {
+  margin-top: 30px;
+
+  padding: 25px 18px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(216, 167, 199, 0.05);
+
+  border:
+    1px solid rgba(216, 167, 199, 0.15);
+
+  animation: wishAppear 0.8s ease forwards;
+}
+
+.mic-icon {
+  font-size: 42px;
+
+  margin-bottom: 12px;
+
+  animation: micFloat 1.8s ease-in-out infinite;
+}
+
+.wish-area h3 {
+  font-size: 14px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 10px;
+
+  color: var(--pink);
+}
+
+#wishText {
+  color: var(--gray);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  margin-bottom: 20px;
+}
+
+#micButton {
+  margin-top: 0;
+
+  font-size: 10px;
+}
+
+.mic-status {
+  margin-top: 15px;
+
+  font-size: 10px;
+
+  color: var(--gray);
+
+  min-height: 15px;
+}
+
+.mic-status.listening {
+  color: var(--pink);
+
+  animation: pulseText 1s ease-in-out infinite;
+}
+
+.mic-status.success {
+  color: var(--pink);
+
+  font-weight: bold;
+}
+
+@keyframes wishAppear {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes micFloat {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+}
+
+@keyframes pulseText {
+
+  0%, 100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
