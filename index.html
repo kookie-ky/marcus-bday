@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Marcus — Birthday </title>
+  <title>Marcus   Birthday </title>
+
   <meta
     name="description"
     content="A little birthday mix made just for Marcus ♡"
   >
 
-  <!-- Open Graph / Link Preview -->
-  <meta property="og:title" content="Marcus — Birthday Mix ">
+  <!-- Link Preview -->
+  <meta property="og:title" content="Marcus — Birthday ">
   <meta
     property="og:description"
     content="A little birthday surprise made just for you ♡"
@@ -35,21 +36,34 @@
 
     <div class="divider"></div>
 
+
+    <!-- CURRENT SONG -->
     <div class="album">
 
-      <div class="album-art">
-        <span>🎵</span>
+      <div class="album-art" id="albumArt">
+        🎵
       </div>
 
       <div class="song-info">
+
         <p class="now-playing">NOW PLAYING</p>
-        <h2>Something Special</h2>
-        <p>Made just for you ♡</p>
+
+        <h2 id="songTitle">
+          Something Special
+        </h2>
+
+        <p id="artistName">
+          Made just for you ♡
+        </p>
+
       </div>
 
     </div>
 
+
+    <!-- EQUALIZER -->
     <div class="equalizer" id="equalizer">
+
       <span></span>
       <span></span>
       <span></span>
@@ -62,25 +76,146 @@
       <span></span>
       <span></span>
       <span></span>
+
     </div>
 
+
+    <!-- PROGRESS -->
     <div class="track-info">
+
       <span>00:00</span>
+
       <div class="progress">
-        <div class="progress-bar"></div>
+        <div
+          class="progress-bar"
+          id="progressBar"
+        ></div>
       </div>
+
       <span>∞:∞</span>
+
     </div>
 
+
+    <!-- PLAY BUTTON -->
     <button id="startButton">
       ▶ PLAY
     </button>
 
+
+    <!-- TRACKLIST -->
+
+    <section class="tracklist">
+
+      <div class="tracklist-header">
+        <span>TRACKLIST</span>
+        <span>05 TRACKS</span>
+      </div>
+
+
+      <div
+        class="track"
+        data-title="No Idea"
+        data-artist="Don Toliver"
+        data-number="01"
+      >
+
+        <span class="track-number">01</span>
+
+        <div class="track-details">
+          <strong>No Idea</strong>
+          <small>Don Toliver</small>
+        </div>
+
+        <span class="track-play">▶</span>
+
+      </div>
+
+
+      <div
+        class="track"
+        data-title="After Party"
+        data-artist="Don Toliver"
+        data-number="02"
+      >
+
+        <span class="track-number">02</span>
+
+        <div class="track-details">
+          <strong>After Party</strong>
+          <small>Don Toliver</small>
+        </div>
+
+        <span class="track-play">▶</span>
+
+      </div>
+
+
+      <div
+        class="track"
+        data-title="Drugs N Hella Melodies"
+        data-artist="Don Toliver ft. Kali Uchis"
+        data-number="03"
+      >
+
+        <span class="track-number">03</span>
+
+        <div class="track-details">
+          <strong>Drugs N Hella Melodies</strong>
+          <small>Don Toliver ft. Kali Uchis</small>
+        </div>
+
+        <span class="track-play">▶</span>
+
+      </div>
+
+
+      <div
+        class="track"
+        data-title="LoveSickness"
+        data-artist="Don Toliver"
+        data-number="04"
+      >
+
+        <span class="track-number">04</span>
+
+        <div class="track-details">
+          <strong>LoveSickness</strong>
+          <small>Don Toliver</small>
+        </div>
+
+        <span class="track-play">▶</span>
+
+      </div>
+
+
+      <div
+        class="track"
+        data-title="Leather Coat"
+        data-artist="Don Toliver"
+        data-number="05"
+      >
+
+        <span class="track-number">05</span>
+
+        <div class="track-details">
+          <strong>Leather Coat</strong>
+          <small>Don Toliver</small>
+        </div>
+
+        <span class="track-play">▶</span>
+
+      </div>
+
+    </section>
+
+
     <p class="hint">
-      There's something waiting for you...
+      Pick a track... there's something waiting for you ♡
     </p>
 
   </main>
+
 
   <script src="script.js"></script>
 
