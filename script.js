@@ -186,10 +186,10 @@ micButton.addEventListener("click", async () => {
     listening = true;
 
 
-    micButton.textContent = "🎤 I'M LISTENING...";
+    micButton.textContent = "LISTENING.....";
 
     micStatus.textContent =
-      "Make your wish... then blow into the mic 💨";
+      "Say your wish to the mic";
 
     micStatus.classList.add("listening");
 
@@ -312,8 +312,8 @@ function wishReceived() {
 
 
   wishText.innerHTML =
-    "Your wish has been sent...<br>" +
-    "and I think something just appeared for you. 👀";
+    "Your wish has been sent hihihi...<br>" +
+    "look up the envelopeeee";
 
 
   equalizer.classList.add("playing");
@@ -340,8 +340,8 @@ openEnvelopeButton.addEventListener("click", () => {
 
   envelope.classList.add("open");
 
-  openEnvelopeButton.textContent =
-    "💌 OPENED";
+openEnvelopeButton.textContent =
+  "FOR MARCUS";
 
 });
 
@@ -351,6 +351,6 @@ envelope.addEventListener("click", () => {
   envelope.classList.add("open");
 
   openEnvelopeButton.textContent =
-    "💌 OPENED";
+    "OPEN IT";
 
 });
