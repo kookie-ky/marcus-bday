@@ -360,7 +360,7 @@ function wishReceived() {
 
   wishText.innerHTML =
     "Look up the envelopeeee<br>" +
-    "";
+    "P.S. It might take a lil while to load after you make your wish so js wait or try it 2 times hihi, something should pop up in another tab AHHAHAHAHAHAHA";
 
 
   equalizer.classList.add("playing");
