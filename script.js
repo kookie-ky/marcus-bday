@@ -30,9 +30,6 @@ const audioPlayer =
   document.getElementById("audioPlayer");
 
 
-/* ------------------------------
-   PLAY BUTTON
------------------------------- */
 
 startButton.addEventListener("click", () => {
 
@@ -69,9 +66,6 @@ startButton.addEventListener("click", () => {
 });
 
 
-/* ------------------------------
-   TRACKLIST
------------------------------- */
 
 tracks.forEach((track) => {
 
@@ -87,12 +81,9 @@ tracks.forEach((track) => {
       track.dataset.audio;
 
 
-    /* Stop current song */
-
     audioPlayer.pause();
 
 
-    /* Select track */
 
     tracks.forEach((item) => {
 
@@ -103,16 +94,12 @@ tracks.forEach((track) => {
     track.classList.add("active");
 
 
-    /* Update song information */
-
     songTitle.textContent =
       title;
 
     artistName.textContent =
       artist;
 
-
-    /* Animate album art */
 
     albumArt.classList.remove("active");
 
@@ -121,24 +108,16 @@ tracks.forEach((track) => {
     albumArt.classList.add("active");
 
 
-    /* Load selected audio */
-
     audioPlayer.src =
       audioFile;
 
-
-    /* Reset progress */
 
     progressBar.style.width =
       "0%";
 
 
-    /* Start playing */
-
     audioPlayer.play();
 
-
-    /* Update UI */
 
     startButton.textContent =
       " PLAYING...";
@@ -146,17 +125,12 @@ tracks.forEach((track) => {
     equalizer.classList.add("playing");
 
 
-    /* Hide wish area */
-
     wishArea.classList.add("hidden");
 
   });
 
 });
 
-/* ------------------------------
-   REAL AUDIO PROGRESS
------------------------------- */
 
 audioPlayer.addEventListener("timeupdate", () => {
 
@@ -225,10 +199,6 @@ audioPlayer.addEventListener("ended", () => {
 });
 
 
-/* ------------------------------
-   MICROPHONE
------------------------------- */
-
 let audioContext;
 
 let analyser;
@@ -239,8 +209,6 @@ let microphoneStream;
 
 let listening = false;
 
-
-/* Start microphone */
 
 micButton.addEventListener("click", async () => {
 
@@ -309,10 +277,6 @@ micButton.addEventListener("click", async () => {
 });
 
 
-/* ------------------------------
-   DETECT BLOW
------------------------------- */
-
 function detectBlow() {
 
   if (!listening) return;
@@ -344,14 +308,6 @@ function detectBlow() {
     Math.sqrt(sum / data.length);
 
 
-  /*
-    A blow usually creates
-    a sustained burst of sound.
-
-    This threshold keeps normal
-    silence from triggering it.
-  */
-
   if (volume > 0.12) {
 
     wishReceived();
@@ -365,10 +321,6 @@ function detectBlow() {
 
 }
 
-
-/* ------------------------------
-   WISH RECEIVED
------------------------------- */
 
 function wishReceived() {
 
