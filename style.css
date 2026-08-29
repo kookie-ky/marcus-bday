@@ -532,6 +532,25 @@ button:hover {
     font-size: 15px;
   }
 
+
+  /* MOBILE ENVELOPE */
+
+  .envelope.open .letter-paper {
+    transform:
+      translateY(-105px)
+      scale(1.25);
+  }
+
+  .letter-content {
+    font-size: 9px;
+
+    padding: 16px;
+  }
+
+  .letter-content h4 {
+    font-size: 12px;
+  }
+
 }
 
 /* ------------------------------
@@ -744,35 +763,67 @@ button:hover {
 .letter-paper {
   position: absolute;
 
-  left: 15px;
-  right: 15px;
+  left: 12px;
+  right: 12px;
 
   bottom: 10px;
 
-  height: 125px;
+  height: 135px;
 
   background: #f4edf2;
 
   color: #24202a;
 
-  border-radius: 3px;
-
-  display: flex;
-
-  align-items: flex-start;
-
-  justify-content: center;
-
-  padding-top: 22px;
-
-  font-family: Georgia, serif;
-
-  font-size: 13px;
+  border-radius: 4px;
 
   z-index: 1;
 
   transition:
     transform 0.8s ease;
+
+  overflow: hidden;
+}
+
+.letter-content {
+  padding: 18px 18px 20px;
+
+  text-align: left;
+
+  height: 100%;
+
+  overflow-y: auto;
+
+  font-family: Georgia, serif;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+.letter-to {
+  font-size: 11px;
+
+  margin-bottom: 10px;
+
+  font-weight: bold;
+}
+
+.letter-content h4 {
+  font-size: 13px;
+
+  margin-bottom: 10px;
+}
+
+.letter-content p {
+  margin-bottom: 9px;
+}
+
+.letter-signature {
+  text-align: right;
+
+  margin-top: 14px;
+
+  font-style: italic;
 }
 
 
@@ -903,9 +954,17 @@ button:hover {
 
 .envelope.open .letter-paper {
   transform:
-    translateY(-75px);
+    translateY(-110px)
+    scale(1.35);
 
   z-index: 6;
+}
+.envelope-section {
+  position: relative;
+}
+
+.envelope.open {
+  margin-bottom: 150px;
 }
 
 
