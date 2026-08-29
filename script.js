@@ -26,28 +26,6 @@ const currentTime =
 const duration =
   document.getElementById("duration");
 
-/* ENVELOPE */
-
-const envelopeSection =
-  document.getElementById("envelopeSection");
-
-const envelope =
-  document.getElementById("envelope");
-
-const openEnvelopeButton =
-  document.getElementById("openEnvelopeButton");
-
-/* AFTER PARTY */
-
-const afterPartySection =
-  document.getElementById("afterPartySection");
-
-const afterPartyButton =
-  document.getElementById("afterPartyButton");
-
-const capybaraContainer =
-  document.getElementById("capybaraContainer");
-
 const audioPlayer =
   document.getElementById("audioPlayer");
 
