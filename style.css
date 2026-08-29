@@ -59,8 +59,6 @@ body {
 }
 
 
-/* HEADER */
-
 .headphones {
   font-size: 48px;
 
@@ -105,9 +103,6 @@ h1 {
 
   margin: 26px auto;
 }
-
-
-/* CURRENT SONG */
 
 .album {
   display: flex;
@@ -179,9 +174,6 @@ h1 {
 
   color: var(--gray);
 }
-
-
-/* EQUALIZER */
 
 .equalizer {
   height: 45px;
@@ -257,8 +249,6 @@ h1 {
 }
 
 
-/* PROGRESS */
-
 .track-info {
   display: flex;
 
@@ -293,8 +283,6 @@ h1 {
   transition: width 0.2s linear;
 }
 
-
-/* BUTTON */
 
 button {
   margin-top: 30px;
@@ -334,8 +322,6 @@ button:hover {
     0 8px 25px rgba(216, 167, 199, 0.25);
 }
 
-
-/* TRACKLIST */
 
 .tracklist {
   margin-top: 38px;
@@ -459,8 +445,6 @@ button:hover {
 }
 
 
-/* HINT */
-
 .hint {
   margin-top: 20px;
 
@@ -471,8 +455,6 @@ button:hover {
   line-height: 1.5;
 }
 
-
-/* ANIMATIONS */
 
 @keyframes equalize {
 
@@ -515,8 +497,6 @@ button:hover {
 }
 
 
-/* MOBILE */
-
 @media (max-width: 420px) {
 
   .player {
@@ -532,8 +512,6 @@ button:hover {
     font-size: 15px;
   }
 
-
-  /* MOBILE ENVELOPE */
 
   .envelope.open .letter-paper {
     transform:
@@ -553,9 +531,6 @@ button:hover {
 
 }
 
-/* ------------------------------
-   WISH / MICROPHONE
------------------------------- */
 
 .hidden {
   display: none;
@@ -672,9 +647,7 @@ button:hover {
   }
 
 }
-/* ------------------------------
-   ENVELOPE SURPRISE
------------------------------- */
+
 
 .envelope-section {
   margin-top: 35px;
@@ -719,8 +692,6 @@ button:hover {
 }
 
 
-/* ENVELOPE */
-
 .envelope {
   position: relative;
 
@@ -742,8 +713,6 @@ button:hover {
 }
 
 
-/* BACK */
-
 .envelope-back {
   position: absolute;
 
@@ -757,8 +726,6 @@ button:hover {
   border-radius: 6px;
 }
 
-
-/* LETTER */
 
 .letter-paper {
   position: absolute;
@@ -827,8 +794,6 @@ button:hover {
 }
 
 
-/* FRONT */
-
 .envelope-front {
   position: absolute;
 
@@ -859,8 +824,6 @@ button:hover {
   z-index: 3;
 }
 
-
-/* FLAP */
 
 .envelope-flap {
   position: absolute;
@@ -893,8 +856,6 @@ button:hover {
   z-index: 4;
 }
 
-
-/* HEART SEAL */
 
 .heart-seal {
   position: absolute;
@@ -932,8 +893,6 @@ button:hover {
 }
 
 
-/* OPEN STATE */
-
 .envelope.open {
   animation: none;
 }
@@ -968,8 +927,6 @@ button:hover {
 }
 
 
-/* BUTTON */
-
 .open-envelope-button {
   margin-top: 35px;
 
@@ -979,8 +936,6 @@ button:hover {
     buttonAppear 1s ease 0.8s forwards;
 }
 
-
-/* ANIMATIONS */
 
 @keyframes envelopeSectionAppear {
 
@@ -1033,9 +988,6 @@ button:hover {
   }
 
 }
-/* ------------------------------
-   AFTER PARTY MODE
------------------------------- */
 
 .after-party-section {
   margin-top: 40px;
@@ -1129,8 +1081,6 @@ button:hover {
   letter-spacing: 2px;
 }
 
-
-/* AFTER PARTY ANIMATIONS */
 
 @keyframes afterPartyAppear {
 
