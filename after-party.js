@@ -1,7 +1,3 @@
-/* ------------------------------
-   AFTER PARTY ACTIVATION
------------------------------- */
-
 const afterPartyButton =
   document.getElementById(
     "afterPartyButton"
