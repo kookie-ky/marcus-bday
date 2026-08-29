@@ -20,6 +20,17 @@ const micStatus = document.getElementById("micStatus");
 
 const wishText = document.getElementById("wishText");
 
+/* ENVELOPE */
+
+const envelopeSection =
+  document.getElementById("envelopeSection");
+
+const envelope =
+  document.getElementById("envelope");
+
+const openEnvelopeButton =
+  document.getElementById("openEnvelopeButton");
+
 
 let progress = 0;
 
@@ -307,4 +318,39 @@ function wishReceived() {
 
   equalizer.classList.add("playing");
 
+
+  setTimeout(() => {
+
+    envelopeSection.classList.remove("hidden");
+
+    envelopeSection.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  }, 1200);
+
 }
+
+/* ------------------------------
+   OPEN ENVELOPE
+------------------------------ */
+
+openEnvelopeButton.addEventListener("click", () => {
+
+  envelope.classList.add("open");
+
+  openEnvelopeButton.textContent =
+    "💌 OPENED";
+
+});
+
+
+envelope.addEventListener("click", () => {
+
+  envelope.classList.add("open");
+
+  openEnvelopeButton.textContent =
+    "💌 OPENED";
+
+});
