@@ -12,6 +12,14 @@ const albumArt = document.getElementById("albumArt");
 
 const tracks = document.querySelectorAll(".track");
 
+const wishArea = document.getElementById("wishArea");
+
+const micButton = document.getElementById("micButton");
+
+const micStatus = document.getElementById("micStatus");
+
+const wishText = document.getElementById("wishText");
+
 
 let progress = 0;
 
@@ -47,6 +55,8 @@ startButton.addEventListener("click", () => {
 
       startButton.textContent = "🎤 MAKE A WISH";
 
+      wishArea.classList.remove("hidden");
+
     }
 
   }, 100);
@@ -67,8 +77,6 @@ tracks.forEach((track) => {
     const artist = track.dataset.artist;
 
 
-    /* Remove active state */
-
     tracks.forEach((item) => {
 
       item.classList.remove("active");
@@ -76,19 +84,13 @@ tracks.forEach((track) => {
     });
 
 
-    /* Activate clicked track */
-
     track.classList.add("active");
 
-
-    /* Change current song */
 
     songTitle.textContent = title;
 
     artistName.textContent = artist;
 
-
-    /* Animate album */
 
     albumArt.classList.remove("active");
 
@@ -97,22 +99,212 @@ tracks.forEach((track) => {
     albumArt.classList.add("active");
 
 
-    /* Start equalizer */
-
     equalizer.classList.add("playing");
 
 
-    /* Change button */
-
     startButton.textContent = "🎵 SELECTED";
 
-
-    /* Reset progress */
 
     progress = 0;
 
     progressBar.style.width = "0%";
 
+
+    wishArea.classList.add("hidden");
+
+    playing = false;
+
   });
 
 });
+
+
+/* ------------------------------
+   MICROPHONE
+------------------------------ */
+
+let audioContext;
+
+let analyser;
+
+let microphone;
+
+let microphoneStream;
+
+let listening = false;
+
+
+/* Start microphone */
+
+micButton.addEventListener("click", async () => {
+
+  if (listening) return;
+
+
+  try {
+
+    microphoneStream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+
+    audioContext =
+      new (window.AudioContext ||
+      window.webkitAudioContext)();
+
+
+    analyser =
+      audioContext.createAnalyser();
+
+
+    analyser.fftSize = 1024;
+
+    analyser.smoothingTimeConstant = 0.8;
+
+
+    microphone =
+      audioContext.createMediaStreamSource(
+        microphoneStream
+      );
+
+
+    microphone.connect(analyser);
+
+
+    listening = true;
+
+
+    micButton.textContent = "🎤 I'M LISTENING...";
+
+    micStatus.textContent =
+      "Make your wish... then blow into the mic 💨";
+
+    micStatus.classList.add("listening");
+
+
+    detectBlow();
+
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    micStatus.textContent =
+      "I couldn't access your microphone 😭";
+
+
+    micButton.textContent =
+      "🎤 TRY AGAIN";
+
+  }
+
+});
+
+
+/* ------------------------------
+   DETECT BLOW
+------------------------------ */
+
+function detectBlow() {
+
+  if (!listening) return;
+
+
+  const data =
+    new Uint8Array(
+      analyser.fftSize
+    );
+
+
+  analyser.getByteTimeDomainData(data);
+
+
+  let sum = 0;
+
+
+  for (let i = 0; i < data.length; i++) {
+
+    const value =
+      (data[i] - 128) / 128;
+
+    sum += value * value;
+
+  }
+
+
+  const volume =
+    Math.sqrt(sum / data.length);
+
+
+  /*
+    A blow usually creates
+    a sustained burst of sound.
+
+    This threshold keeps normal
+    silence from triggering it.
+  */
+
+  if (volume > 0.12) {
+
+    wishReceived();
+
+    return;
+
+  }
+
+
+  requestAnimationFrame(detectBlow);
+
+}
+
+
+/* ------------------------------
+   WISH RECEIVED
+------------------------------ */
+
+function wishReceived() {
+
+  listening = false;
+
+
+  if (microphoneStream) {
+
+    microphoneStream
+      .getTracks()
+      .forEach((track) => {
+        track.stop();
+      });
+
+  }
+
+
+  if (audioContext) {
+
+    audioContext.close();
+
+  }
+
+
+  micStatus.classList.remove("listening");
+
+  micStatus.classList.add("success");
+
+
+  micStatus.textContent =
+    "✨ WISH RECEIVED ✨";
+
+
+  micButton.textContent =
+    "✓ WISH SENT";
+
+
+  wishText.innerHTML =
+    "Your wish has been sent...<br>" +
+    "and I think something just appeared for you. 👀";
+
+
+  equalizer.classList.add("playing");
+
+}
