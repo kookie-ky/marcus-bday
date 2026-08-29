@@ -414,76 +414,15 @@ function wishReceived() {
   equalizer.classList.add("playing");
 
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    envelopeSection.classList.remove("hidden");
+  window.open(
+    "letter.html",
+    "_blank"
+  );
 
-    envelopeSection.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-  }, 1200);
+}, 1200);
 
 }
 
-/* ------------------------------
-   OPEN ENVELOPE
------------------------------- */
 
-openEnvelopeButton.addEventListener("click", () => {
-
-  envelope.classList.add("open");
-
-  openEnvelopeButton.textContent =
-    "FOR YOU ♡";
-
-
-  setTimeout(() => {
-
-    afterPartySection.classList.remove("hidden");
-
-    afterPartySection.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-  }, 1800);
-
-});
-
-envelope.addEventListener("click", () => {
-
-  envelope.classList.add("open");
-
-  openEnvelopeButton.textContent =
-    "OPEN IT";
-
-
-  setTimeout(() => {
-
-    afterPartySection.classList.remove("hidden");
-
-    afterPartySection.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-  }, 1800);
-
-});
-
-/* ------------------------------
-   AFTER PARTY ACTIVATION
------------------------------- */
-
-afterPartyButton.addEventListener("click", () => {
-
-  capybaraContainer.classList.add("show");
-
-  afterPartyButton.textContent =
-    "AFTER PARTY ACTIVATED";
-
-  equalizer.classList.add("playing");
-
-});
