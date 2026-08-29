@@ -1033,3 +1033,157 @@ button:hover {
   }
 
 }
+/* ------------------------------
+   AFTER PARTY MODE
+------------------------------ */
+
+.after-party-section {
+  margin-top: 40px;
+
+  padding: 30px 20px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(216, 167, 199, 0.12),
+      rgba(18, 18, 28, 0.4)
+    );
+
+  border:
+    1px solid rgba(216, 167, 199, 0.15);
+
+  animation:
+    afterPartyAppear 1s ease forwards;
+}
+
+.after-party-label {
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  color: var(--gray);
+
+  margin-bottom: 10px;
+}
+
+.after-party-section h3 {
+  font-size: 22px;
+
+  letter-spacing: 3px;
+
+  color: var(--pink);
+
+  margin-bottom: 8px;
+}
+
+.after-party-subtitle {
+  color: var(--gray);
+
+  font-size: 12px;
+
+  margin-bottom: 22px;
+}
+
+.after-party-button {
+  margin-top: 0;
+
+  border-color:
+    rgba(216, 167, 199, 0.6);
+}
+
+.capybara-container {
+  display: none;
+
+  margin-top: 25px;
+}
+
+.capybara-container.show {
+  display: block;
+
+  animation:
+    capybaraAppear 0.8s ease forwards;
+}
+
+.capybara {
+  font-size: 90px;
+
+  line-height: 1;
+
+  animation:
+    capybaraBounce 0.55s ease-in-out infinite alternate;
+}
+
+.capybara-container p {
+  margin-top: 12px;
+
+  color: var(--pink);
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+}
+
+
+/* AFTER PARTY ANIMATIONS */
+
+@keyframes afterPartyAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+@keyframes capybaraAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.3)
+      rotate(-15deg);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+  }
+
+}
+
+@keyframes capybaraBounce {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-4deg);
+  }
+
+  to {
+    transform:
+      translateY(-18px)
+      rotate(4deg);
+  }
+
+}
