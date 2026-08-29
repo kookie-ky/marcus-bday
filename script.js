@@ -45,12 +45,6 @@ const capybaraContainer =
 const audioPlayer =
   document.getElementById("audioPlayer");
 
-let progress = 0;
-
-let playing = false;
-
-let progressInterval;
-
 
 /* ------------------------------
    PLAY BUTTON
@@ -58,32 +52,35 @@ let progressInterval;
 
 startButton.addEventListener("click", () => {
 
-  if (playing) return;
+  if (!audioPlayer.src) {
 
-  playing = true;
+    startButton.textContent =
+      " PICK A TRACK FIRST";
 
-  startButton.textContent = "🎵 PLAYING...";
+    return;
 
-  equalizer.classList.add("playing");
-
-  progressInterval = setInterval(() => {
-
-    progress += 1;
-
-    progressBar.style.width = progress + "%";
+  }
 
 
-    if (progress >= 100) {
+  if (audioPlayer.paused) {
 
-      clearInterval(progressInterval);
+    audioPlayer.play();
 
-      startButton.textContent = "🎤 MAKE A WISH";
+    startButton.textContent =
+      " PLAYING...";
 
-      wishArea.classList.remove("hidden");
+    equalizer.classList.add("playing");
 
-    }
+  } else {
 
-  }, 100);
+    audioPlayer.pause();
+
+    startButton.textContent =
+      "▶ PAUSED";
+
+    equalizer.classList.remove("playing");
+
+  }
 
 });
 
@@ -96,10 +93,22 @@ tracks.forEach((track) => {
 
   track.addEventListener("click", () => {
 
-    const title = track.dataset.title;
+    const title =
+      track.dataset.title;
 
-    const artist = track.dataset.artist;
+    const artist =
+      track.dataset.artist;
 
+    const audioFile =
+      track.dataset.audio;
+
+
+    /* Stop current song */
+
+    audioPlayer.pause();
+
+
+    /* Select track */
 
     tracks.forEach((item) => {
 
@@ -107,14 +116,19 @@ tracks.forEach((track) => {
 
     });
 
-
     track.classList.add("active");
 
 
-    songTitle.textContent = title;
+    /* Update song information */
 
-    artistName.textContent = artist;
+    songTitle.textContent =
+      title;
 
+    artistName.textContent =
+      artist;
+
+
+    /* Animate album art */
 
     albumArt.classList.remove("active");
 
@@ -123,22 +137,67 @@ tracks.forEach((track) => {
     albumArt.classList.add("active");
 
 
+    /* Load selected audio */
+
+    audioPlayer.src =
+      audioFile;
+
+
+    /* Reset progress */
+
+    progressBar.style.width =
+      "0%";
+
+
+    /* Start playing */
+
+    audioPlayer.play();
+
+
+    /* Update UI */
+
+    startButton.textContent =
+      " PLAYING...";
+
     equalizer.classList.add("playing");
 
 
-    startButton.textContent = "🎵 SELECTED";
-
-
-    progress = 0;
-
-    progressBar.style.width = "0%";
-
+    /* Hide wish area */
 
     wishArea.classList.add("hidden");
 
-    playing = false;
-
   });
+
+});
+
+/* ------------------------------
+   REAL AUDIO PROGRESS
+------------------------------ */
+
+audioPlayer.addEventListener("timeupdate", () => {
+
+  if (!audioPlayer.duration) return;
+
+
+  const percentage =
+    (audioPlayer.currentTime /
+      audioPlayer.duration) * 100;
+
+
+  progressBar.style.width =
+    percentage + "%";
+
+});
+
+
+audioPlayer.addEventListener("ended", () => {
+
+  equalizer.classList.remove("playing");
+
+  startButton.textContent =
+    " MAKE A WISHHHH";
+
+  wishArea.classList.remove("hidden");
 
 });
 
@@ -317,16 +376,16 @@ function wishReceived() {
 
 
   micStatus.textContent =
-    "✨ WISH RECEIVED ✨";
+    " WISH RECEIVED ";
 
 
   micButton.textContent =
-    "✓ WISH SENT";
+    "✓ WISH SENT HIHI";
 
 
   wishText.innerHTML =
-    "Your wish has been sent hihihi...<br>" +
-    "look up the envelopeeee";
+    "Look up the envelopeeee<br>" +
+    "";
 
 
   equalizer.classList.add("playing");
