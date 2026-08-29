@@ -16,16 +16,6 @@ function openLetter() {
   openEnvelopeButton.textContent =
     "FOR YOU ♡";
 
-
-  setTimeout(() => {
-
-    window.open(
-      "after-party.html",
-      "_blank"
-    );
-
-  }, 1800);
-
 }
 
 
