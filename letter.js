@@ -1,6 +1,3 @@
-/* ------------------------------
-   OPEN ENVELOPE
------------------------------- */
 
 const envelope =
   document.getElementById("envelope");
